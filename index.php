@@ -50,17 +50,34 @@
     <title>Hotel-php</title>
 </head>
 <body>
-<?php 
-foreach ($hotels as $hotel) { 
-    ?>
-        <tr>
-            <td><?php echo $hotel['name']; ?></td>
-            <td><?php echo $hotel['description']; ?></td>
-            <td>Rating: <?php echo $hotel['vote']; ?></td>
-            <td>Distance to center: <?php echo $hotel['distance_to_center']; ?> km</td>
-        </tr>
-    <?php
- } ?>
+    <table>
+        <!-- HEAD TABLE -->
+        <thead>
+            <tr>
+                <th>Name Hotel</th>
+                <th>Description</th>
+                <th>Parking</th>
+                <th>Rating</th>
+                <th>Distance to center</th>
+            </tr>
+        </thead>
+        <!-- BODY TABLE -->
+        <tbody>   
+        <?php 
+        foreach ($hotels as $hotel) { 
+            ?>
+                <tr>
+                    <td><?php echo $hotel['name']; ?></td>
+                    <td><?php echo $hotel['description']; ?></td>
+                    <td><?php echo $hotel['vote']; ?></td>
+                    <td><?php echo $hotel['parking'] ? 'Available' : 'Not available'; ?></td>
+                    <td><?php echo $hotel['distance_to_center']; ?> km</td>
+                </tr>
+        <?php
+        } ?>
+        </tbody>
+    </table>
+    
     
 </body>
 </html>
